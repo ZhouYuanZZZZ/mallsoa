@@ -1,4 +1,4 @@
-package com.zy.mallsoa.manager.dao;
+package com.zy.mallsoa.manager;
 
 
 
