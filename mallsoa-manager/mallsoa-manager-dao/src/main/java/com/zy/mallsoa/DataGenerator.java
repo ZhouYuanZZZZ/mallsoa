@@ -1,4 +1,4 @@
-package com.zy.mallsoa.manager;
+package com.zy.mallsoa;
 
 
 
