@@ -9,12 +9,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.junit4.SpringRunner;
-import redis.clients.jedis.Jedis;
-import redis.clients.jedis.JedisPool;
-import redis.clients.jedis.Response;
-import redis.clients.jedis.Transaction;
+import redis.clients.jedis.*;
 
 import javax.annotation.Resource;
+import java.io.IOException;
 import java.util.*;
 
 @RunWith(SpringRunner.class)
@@ -23,10 +21,13 @@ public class WebApplicationTests {
 
 	private static final Logger logger = LoggerFactory.getLogger(WebApplicationTests.class);
 
-	@Resource
+
 	private JedisPool jedisPool;
 
 	private Jedis jedis;
+
+	@Resource
+	private JedisCluster jedisCluster;
 
 	@Test
 	public void contextLoads() {
@@ -34,12 +35,12 @@ public class WebApplicationTests {
 
 	@Before
 	public void before(){
-		jedis = jedisPool.getResource();
+
 	}
 
 	@After
 	public void after(){
-		jedis.close();
+
 	}
 
 	@Test
@@ -148,6 +149,15 @@ public class WebApplicationTests {
 		//2 transaction.discard();
 		System.out.println("serialNum***********" + response.get());
 
+	}
+
+	@Test
+	public void testJedisCluster() throws IOException {
+		for (int i = 0; i <100 ; i++) {
+			jedisCluster.set("k"+i,"v"+i);
+		}
+
+		jedisCluster.close();
 	}
 
 

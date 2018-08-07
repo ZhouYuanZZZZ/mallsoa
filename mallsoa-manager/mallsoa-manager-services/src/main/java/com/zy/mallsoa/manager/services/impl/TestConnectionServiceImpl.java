@@ -2,8 +2,6 @@ package com.zy.mallsoa.manager.services.impl;
 
 import com.alibaba.dubbo.config.annotation.Service;
 import com.zy.mallsoa.manager.interfaces.TestConnectionService;
-import com.zy.mallsoa.manager.pojo.TbItem;
-
 import javax.annotation.Resource;
 import java.util.List;
 
@@ -15,10 +13,10 @@ public class TestConnectionServiceImpl implements TestConnectionService {
         return null;
     }
 
-    @Override
-    public List<TbItem> getTbItems() {
-        return null;
-    }
+//    @Override
+//    public List<TbItem> getTbItems() {
+//        return null;
+//    }
 
 ////    @Resource
 //    private TbItemMapper tbItemMapper;
