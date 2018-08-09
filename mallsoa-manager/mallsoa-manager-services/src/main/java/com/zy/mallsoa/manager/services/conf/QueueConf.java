@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jms.connection.SingleConnectionFactory;
 import org.springframework.jms.listener.DefaultMessageListenerContainer;
+import org.springframework.jms.listener.adapter.MessageListenerAdapter;
 
 @Configuration
 public class QueueConf {
@@ -21,6 +22,7 @@ public class QueueConf {
         ActiveMQQueue activeMQQueue = new ActiveMQQueue("testQ1Confirm");
         return activeMQQueue;
     }
+
 
     @Bean
     public DefaultMessageListenerContainer defaultMessageListenerContainer(SingleConnectionFactory singleConnectionFactory, ActiveMQQueue testQ1Confirm, TestMessageListener0 testMessageListener0){

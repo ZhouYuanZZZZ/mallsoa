@@ -23,6 +23,9 @@ public class JMSTestService {
     @Resource
     private Destination queue1;
 
+    @Resource
+    private Destination testQ1Confirm;
+
     public void testMessage0(String message) {
 
         MessageCreator messageCreator = (session)->{
@@ -39,6 +42,7 @@ public class JMSTestService {
     public void testMessage1(){
         MessageCreator messageCreator = (session)->{
             TextMessage textMessage = session.createTextMessage(DateUtil.getDefaultSimpleDateFormat().format(new Date()));
+            textMessage.setJMSReplyTo(testQ1Confirm);
             return textMessage;
         };
 
