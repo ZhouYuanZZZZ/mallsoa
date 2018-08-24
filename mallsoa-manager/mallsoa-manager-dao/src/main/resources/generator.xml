@@ -20,9 +20,9 @@
         </commentGenerator>
         <!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://192.168.1.142:3306/mallsoa?characterEncoding=utf-8"
+                        connectionURL="jdbc:mysql://192.168.1.141:3306/mallsoa?characterEncoding=utf-8"
                         userId="root"
-                        password="root">
+                        password="Csscaps@123">
         </jdbcConnection>
          <!--<jdbcConnection driverClass="oracle.jdbc.OracleDriver"-->
             <!--connectionURL="jdbc:oracle:thin:@//192.168.1.141:1521/cssca.com"-->

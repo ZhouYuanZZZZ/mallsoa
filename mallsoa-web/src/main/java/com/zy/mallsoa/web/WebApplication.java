@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jms.JmsAutoConfiguration;
 
 @SpringBootApplication(exclude = {JmsAutoConfiguration.class})
-//@DubboComponentScan(basePackages = "com.zy.mallsoa.web")
+@DubboComponentScan(basePackages = "com.zy.mallsoa.web")
 public class WebApplication {
 
 	public static void main(String[] args) {

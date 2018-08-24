@@ -8,11 +8,12 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerA
 import org.springframework.boot.autoconfigure.jms.JmsAutoConfiguration;
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @EnableScheduling
 @SpringBootApplication(exclude = {JmsAutoConfiguration.class})
-//@EnableTransactionManagement
-//@DubboComponentScan(basePackages = "com.zy.mallsoa.manager.services.impl")
+@EnableTransactionManagement
+@DubboComponentScan(basePackages = "com.zy.mallsoa.manager.services.impl")
 public class WebApplication {
 
 	public static void main(String[] args) {

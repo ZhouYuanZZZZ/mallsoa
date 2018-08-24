@@ -12,24 +12,4 @@ public class TestConnectionServiceImpl implements TestConnectionService {
     public String testConnection(String requestCode) {
         return null;
     }
-
-//    @Override
-//    public List<TbItem> getTbItems() {
-//        return null;
-//    }
-
-////    @Resource
-//    private TbItemMapper tbItemMapper;
-//
-//    @Override
-//    public String testConnection(String requestCode) {
-//        return "ok:"+requestCode;
-//    }
-//
-//    @Override
-//    public List<TbItem> getTbItems() {
-//        return tbItemMapper.selectAll();
-//    }
-
-
 }

@@ -38,7 +38,7 @@ public class JMSTestService {
         logger.info("-------------send after-----------");
     }
 
-    @Scheduled(cron = "0/1 * * * * ? ")
+//    @Scheduled(cron = "0/1 * * * * ? ")
     public void testMessage1(){
         MessageCreator messageCreator = (session)->{
             TextMessage textMessage = session.createTextMessage(DateUtil.getDefaultSimpleDateFormat().format(new Date()));
