@@ -21,7 +21,7 @@ public class DataGenerator {
         boolean overwrite = true;
         ConfigurationParser cp = new ConfigurationParser(warnings);
         Configuration config =
-                cp.parseConfiguration(DataGenerator.class.getClassLoader().getResourceAsStream("generator.xml"));
+                cp.parseConfiguration(DataGenerator.class.getClassLoader().getResourceAsStream("generator0.xml"));
         DefaultShellCallback callback = new DefaultShellCallback(overwrite);
         MyBatisGenerator myBatisGenerator = new MyBatisGenerator(config, callback, warnings);
         myBatisGenerator.generate(null);
