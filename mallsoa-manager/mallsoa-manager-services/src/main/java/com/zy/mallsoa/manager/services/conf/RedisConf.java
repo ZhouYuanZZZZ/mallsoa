@@ -11,7 +11,7 @@ import redis.clients.jedis.JedisPool;
 import java.util.HashSet;
 import java.util.Set;
 
-@Configuration
+
 public class RedisConf implements EnvironmentAware {
 
     private Environment environment;
@@ -22,7 +22,7 @@ public class RedisConf implements EnvironmentAware {
         return jedisPool;
     }
 
-    @Bean
+
     public JedisCluster jedisCluster(){
         Set<HostAndPort> nodes = new HashSet<>();
         for (int i = 0; i <6 ; i++) {

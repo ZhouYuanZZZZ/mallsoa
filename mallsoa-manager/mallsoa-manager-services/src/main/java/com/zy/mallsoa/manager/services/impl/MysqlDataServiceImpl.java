@@ -9,7 +9,6 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @Service
-@com.alibaba.dubbo.config.annotation.Service
 public class MysqlDataServiceImpl implements MysqlDataService {
 
     @Resource

@@ -13,7 +13,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableScheduling
 @SpringBootApplication(exclude = {JmsAutoConfiguration.class})
 @EnableTransactionManagement
-@DubboComponentScan(basePackages = "com.zy.mallsoa.manager.services.impl")
 public class WebApplication {
 
 	public static void main(String[] args) {
