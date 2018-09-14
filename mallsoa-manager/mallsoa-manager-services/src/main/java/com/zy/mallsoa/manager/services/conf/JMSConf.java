@@ -10,13 +10,13 @@ import org.springframework.jms.connection.SingleConnectionFactory;
 import org.springframework.jms.core.JmsTemplate;
 
 
-@Configuration
+
 public class JMSConf implements EnvironmentAware {
 
     private Environment environment;
 
     //真正可以产生Connection的ConnectionFactory，由对应的 JMS服务厂商提供
-    @Bean
+
     public ActiveMQConnectionFactory activeMQConnectionFactory() {
 
         ActiveMQConnectionFactory activeMQConnectionFactory = new ActiveMQConnectionFactory();
@@ -25,7 +25,7 @@ public class JMSConf implements EnvironmentAware {
         return activeMQConnectionFactory;
     }
 
-    @Bean
+
     public PooledConnectionFactory pooledConnectionFactory(ActiveMQConnectionFactory activeMQConnectionFactory){
         PooledConnectionFactory pooledConnectionFactory = new PooledConnectionFactory();
         pooledConnectionFactory.setConnectionFactory(activeMQConnectionFactory);
@@ -33,14 +33,14 @@ public class JMSConf implements EnvironmentAware {
         return pooledConnectionFactory;
     }
 
-    @Bean
+
     public SingleConnectionFactory singleConnectionFactory(PooledConnectionFactory pooledConnectionFactory){
         SingleConnectionFactory singleConnectionFactory = new SingleConnectionFactory();
         singleConnectionFactory.setTargetConnectionFactory(pooledConnectionFactory);
         return singleConnectionFactory;
     }
 
-    @Bean
+
     public JmsTemplate jmsTemplate(SingleConnectionFactory singleConnectionFactory){
         JmsTemplate jmsTemplate = new JmsTemplate();
         jmsTemplate.setConnectionFactory(singleConnectionFactory);
