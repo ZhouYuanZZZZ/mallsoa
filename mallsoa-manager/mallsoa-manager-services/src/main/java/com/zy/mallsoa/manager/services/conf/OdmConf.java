@@ -1,6 +1,6 @@
 package com.zy.mallsoa.manager.services.conf;
 
-import com.mysql.jdbc.jdbc2.optional.MysqlXADataSource;
+import com.mysql.cj.jdbc.MysqlDataSource;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,15 +31,13 @@ public class OdmConf implements EnvironmentAware {
     @Bean(name = "mysqlDb")
     public DataSource dataSource() {
 
-        MysqlXADataSource mysqlXaDataSource = new MysqlXADataSource();
-        mysqlXaDataSource.setUrl(environment.getProperty("odm.url"));
-        mysqlXaDataSource.setPinGlobalTxToPhysicalConnection(true);
-        mysqlXaDataSource.setPassword(environment.getProperty("odm.password"));
-        mysqlXaDataSource.setUser(environment.getProperty("odm.username"));
+        MysqlDataSource mysqlDataSource = new MysqlDataSource();
+        mysqlDataSource.setUrl(environment.getProperty("odm.url"));
+        mysqlDataSource.setPassword(environment.getProperty("odm.password"));
+        mysqlDataSource.setUser(environment.getProperty("odm.username"));
 
-        AtomikosDataSourceBean xaDataSource = new AtomikosDataSourceBean();
-        xaDataSource.setXaDataSource(mysqlXaDataSource);
-        return xaDataSource;
+
+        return mysqlDataSource;
     }
 
     @Bean
@@ -71,6 +69,7 @@ public class OdmConf implements EnvironmentAware {
         return mapperScannerConfigurer;
     }
 
+    @Bean
     public DataSourceTransactionManager transactionManager(@Qualifier("mysqlDb") DataSource dataSource){
         DataSourceTransactionManager dataSourceTransactionManager = new DataSourceTransactionManager(dataSource);
 

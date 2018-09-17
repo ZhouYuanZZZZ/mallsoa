@@ -34,7 +34,7 @@ public class RedisConf implements EnvironmentAware {
         return jedisCluster;
     }
 
-    @Override
+
     public void setEnvironment(Environment environment) {
         this.environment = environment;
     }

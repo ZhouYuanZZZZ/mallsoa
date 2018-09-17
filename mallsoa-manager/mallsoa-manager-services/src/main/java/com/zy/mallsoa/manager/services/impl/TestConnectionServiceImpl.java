@@ -1,6 +1,6 @@
 package com.zy.mallsoa.manager.services.impl;
 
-import com.alibaba.dubbo.config.annotation.Service;
+
 import com.zy.mallsoa.manager.interfaces.TestConnectionService;
 import javax.annotation.Resource;
 import java.util.List;
