@@ -1,7 +1,8 @@
 package com.zy.mallsoa.manager.services.impl;
 
-import com.zy.mallsoa.manager.dao.TbItemMapper;
+
 import com.zy.mallsoa.manager.interfaces.MysqlDataService;
+import com.zy.mallsoa.manager.pojo.Employees;
 import com.zy.mallsoa.manager.pojo.TbItem;
 import org.springframework.stereotype.Service;
 
@@ -11,11 +12,9 @@ import java.util.List;
 @Service
 public class MysqlDataServiceImpl implements MysqlDataService {
 
-    @Resource
-    private TbItemMapper tbItemMapper;
 
     @Override
-    public List<TbItem> getTbItems() {
-        return tbItemMapper.selectAll();
+    public List<Employees> getEmployees() {
+        return null;
     }
 }

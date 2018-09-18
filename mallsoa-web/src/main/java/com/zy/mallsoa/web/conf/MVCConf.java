@@ -25,6 +25,11 @@ public class MVCConf {
                 SerializerFeature.WriteNullStringAsEmpty,
                 SerializerFeature.PrettyFormat);
 
+        List<MediaType> fastMediaTypes = new ArrayList<>();
+        fastMediaTypes.add(MediaType.APPLICATION_JSON);
+        fastMediaTypes.add(MediaType.TEXT_PLAIN);
+
+        fastConverter.setSupportedMediaTypes(fastMediaTypes);
         fastConverter.setFastJsonConfig(fastJsonConfig);
 
         return fastConverter;

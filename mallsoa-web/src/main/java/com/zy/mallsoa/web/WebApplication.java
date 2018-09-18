@@ -1,13 +1,14 @@
 package com.zy.mallsoa.web;
 
-import com.alibaba.dubbo.config.spring.context.annotation.DubboComponentScan;
+
 import com.alibaba.fastjson.JSON;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jms.JmsAutoConfiguration;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
+@EnableDiscoveryClient
 @SpringBootApplication(exclude = {JmsAutoConfiguration.class})
-@DubboComponentScan(basePackages = "com.zy.mallsoa.web")
 public class WebApplication {
 
 	public static void main(String[] args) {

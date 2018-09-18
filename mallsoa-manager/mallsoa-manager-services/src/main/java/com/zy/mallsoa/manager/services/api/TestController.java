@@ -10,6 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -39,5 +40,20 @@ public class TestController {
 
         return responseEntity;
     }
+
+    @ResponseBody
+    @RequestMapping("/getEmployees")
+    public ResponseEntity<List<Employees>> getEmployees(){
+
+        List<Employees> employees = employeesMapper.selectAll();
+
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.setContentType(MediaType.APPLICATION_JSON);
+
+        return new ResponseEntity(employees,httpHeaders,HttpStatus.OK);
+
+    }
+
+
 
 }
